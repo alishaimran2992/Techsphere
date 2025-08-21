@@ -10,7 +10,7 @@ class WishlistScreen extends StatelessWidget {
       'rating': 2,
       'status': 'In Stock',
       'date': '2023-10-26',
-      'image': 'assets/images/headphones.png',
+      'image': 'images/wireless.jpg',
     },
     {
       'name': 'ChromaFlow RGB Gaming Keyboard',
@@ -20,7 +20,7 @@ class WishlistScreen extends StatelessWidget {
       'rating': 4,
       'status': 'Limited Stock',
       'date': '2023-10-20',
-      'image': 'assets/images/keyboard.png',
+      'image': 'images/keyboard.jpg',
     },
     {
       'name': 'ProLens 4K Portable Projector',
@@ -30,7 +30,7 @@ class WishlistScreen extends StatelessWidget {
       'rating': 3,
       'status': 'In Stock',
       'date': '2023-10-15',
-      'image': 'assets/images/projector.png',
+      'image': 'images/projector.jpg',
     },
   ];
 
@@ -129,7 +129,7 @@ class WishlistScreen extends StatelessWidget {
                                       label: Text('Purchase Now'),
                                       onPressed: () {},
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.indigo,
+                                        backgroundColor: Colors.blue,
                                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                                       ),
                                     )

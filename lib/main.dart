@@ -3,7 +3,7 @@ import 'screens/home_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/favorite_screen.dart';
 import 'screens/browse_screen.dart';
-
+import 'splash_screen.dart';
 
 void main() {
   runApp(TechSphereApp());

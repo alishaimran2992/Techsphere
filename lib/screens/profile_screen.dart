@@ -61,8 +61,8 @@ class ProfileScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 10),
-                    Text("Jane Doe", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                    Text("jane.doe@example.com", style: TextStyle(color: Colors.grey)),
+                    Text("Jan Dawood", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    Text("jan.dawood@example.com", style: TextStyle(color: Colors.grey)),
                     SizedBox(height: 10),
                     ElevatedButton.icon(
                       onPressed: () {},

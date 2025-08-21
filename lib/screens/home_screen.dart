@@ -15,9 +15,12 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'TechSphere Recommends',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Flexible(
+                    child: Text(
+                      'TechSphere Recommends',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                   Row(
                     children: [
@@ -25,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(width: 10),
                       CircleAvatar(
                         radius: 16,
-                        backgroundImage: AssetImage('assets/images/profile.jpg'), // Replace with your image
+                        backgroundImage: AssetImage('assets/images/profile.jpg'),
                       ),
                     ],
                   )
@@ -44,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Welcome, Tech Enthusiast!',
+                      'Welcome, Tech Sphere!',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
@@ -69,10 +72,11 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
                 children: [
-                  _buildCategoryCard('Smartphones', 120),
+                  _buildCategoryCard('Smartphone', 120),
                   _buildCategoryCard('Laptops', 85),
                   _buildCategoryCard('Wearables', 50),
                 ],
@@ -84,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                 'Personalized Picks',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 10),
               GridView.count(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -93,27 +97,29 @@ class HomeScreen extends StatelessWidget {
                 crossAxisSpacing: 16,
                 childAspectRatio: 0.68,
                 children: [
-                  _buildProductCard('iPhone 15 Pro Max', 'assets/images/iphone.jpg', 4.9, '\$1199.00'),
-                  _buildProductCard('MacBook Pro 14"', 'assets/images/macbook.jpg', 4.7, '\$1999.00'),
-                  _buildProductCard('Galaxy Watch 6 Classic', 'assets/images/watch.jpg', 4.5, '\$329.00'),
-                  _buildProductCard('Sony WH-1000XM5', 'assets/images/headphones.jpg', 4.8, '\$348.00'),
+                  _buildProductCard('iPhone 15 Pro Max', 'images/Apple-iPhone-15-Pro.jpg', 4.9, '\$1199.00'),
+                  _buildProductCard('MacBook Pro 14"', 'images/macbook 14.jpg', 4.7, '\$1999.00'),
+                  _buildProductCard('Galaxy Watch 6 Classic', 'images/watch6-classic-silver.jpg', 4.5, '\$329.00'),
+                  _buildProductCard('Sony WH-1000XM5', 'images/sony wh.jpg', 4.8, '\$348.00'),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 12),
 
               // Featured Brands
               Text(
                 'Featured Brands',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              SizedBox(height: 10),
+              Wrap(
+                alignment: WrapAlignment.spaceAround,
+                spacing: 20,
+                runSpacing: 12,
                 children: [
-                  _buildBrandIcon('assets/icons/apple.png'),
-                  _buildBrandIcon('assets/icons/samsung.png'),
-                  _buildBrandIcon('assets/icons/sony.png'),
-                  _buildBrandIcon('assets/icons/microsoft.png'),
+                  _buildBrandIcon('images/Apple-Logo.jpg'),
+                  _buildBrandIcon('images/samsung-logo-png.png'),
+                  _buildBrandIcon('images/sony-logo-png.png'),
+                  _buildBrandIcon('images/Huawei-Logo.png'),
                 ],
               ),
               SizedBox(height: 20),
@@ -217,6 +223,6 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildBrandIcon(String path) {
-    return Image.asset(path, width: 40, height: 40);
+    return Image.asset(path, width: 100, height: 100);
   }
 }

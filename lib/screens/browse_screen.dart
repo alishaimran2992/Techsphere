@@ -65,15 +65,15 @@ class BrowseScreen extends StatelessWidget {
               children: [
                 _buildTrendingCard(
                   title: 'Smartphones',
-                  subtitle: 'Discover the latest models and',
-                  imageUrl: 'https://i.imgur.com/v5ZgMh9.png',
+                  subtitle: 'Discover the latest and advance models',
+                  imagePath: 'images/smartphones.jpg',
                   isPopular: true,
                 ),
                 const SizedBox(width: 10),
                 _buildTrendingCard(
                   title: 'Smart Home Devices',
-                  subtitle: 'Automate your living space with smart',
-                  imageUrl: 'https://i.imgur.com/dO4aY6n.png',
+                  subtitle: 'Automate your living space with smart devices',
+                  imagePath: 'images/smart home devices.jpg',
                 ),
               ],
             ),
@@ -86,39 +86,42 @@ class BrowseScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
+            GridView.count(
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
               children: [
                 _buildCategoryCard(
                   title: 'Laptops & PCs',
                   subtitle: 'High-performance machines for work',
-                  imageUrl: 'https://i.imgur.com/NAl1cmz.png',
+                  imagePath: 'images/laptop and pc.jpg',
                 ),
                 _buildCategoryCard(
                   title: 'Audio Devices',
-                  subtitle: 'Headphones, speakers, and sound',
-                  imageUrl: 'https://i.imgur.com/oDnPCvJ.png',
+                  subtitle: 'Headphones, speakers and sound systems',
+                  imagePath: 'images/audio devices.jpg',
                 ),
                 _buildCategoryCard(
                   title: 'Wearables',
-                  subtitle: 'Smartwatches, fitness trackers, and',
-                  imageUrl: 'https://i.imgur.com/UV2AfUl.png',
+                  subtitle: 'Smartwatches & trackers',
+                  imagePath: 'images/wearable devices.jpg',
                 ),
                 _buildCategoryCard(
                   title: 'Cameras',
                   subtitle: 'Capture moments with high-quality',
-                  imageUrl: 'https://i.imgur.com/cPtSxgA.png',
+                  imagePath: 'images/cameras.jpg',
                 ),
                 _buildCategoryCard(
                   title: 'Gaming Gear',
-                  subtitle: 'Consoles, accessories, and',
-                  imageUrl: 'https://i.imgur.com/mEDbnEv.png',
+                  subtitle: 'Consoles & accessories',
+                  imagePath: 'images/gaming gear.jpg',
                 ),
                 _buildCategoryCard(
                   title: 'Drones',
-                  subtitle: 'Explore the skies with advanced aerial',
-                  imageUrl: 'https://i.imgur.com/rVxyU0W.png',
+                  subtitle: 'Explore the skies with drones',
+                  imagePath: 'images/drones.jpg',
                 ),
               ],
             ),
@@ -129,10 +132,10 @@ class BrowseScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTrendingCard({
+  static Widget _buildTrendingCard({
     required String title,
     required String subtitle,
-    required String imageUrl,
+    required String imagePath,
     bool isPopular = false,
   }) {
     return Expanded(
@@ -155,11 +158,11 @@ class BrowseScreen extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(imageUrl, height: 60),
+                Image.asset(imagePath, height: 60),
                 const SizedBox(height: 10),
                 Text(title,
-                    style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 14)),
                 Text(
                   subtitle,
                   style: const TextStyle(fontSize: 12, color: Colors.grey),
@@ -188,40 +191,37 @@ class BrowseScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryCard({
+  static Widget _buildCategoryCard({
     required String title,
     required String subtitle,
-    required String imageUrl,
+    required String imagePath,
   }) {
-    return SizedBox(
-      width: 160,
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.grey[50],
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.08),
-              blurRadius: 4,
-              offset: const Offset(0, 4),
-            )
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(imageUrl, height: 60),
-            const SizedBox(height: 10),
-            Text(title,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 14)),
-            Text(
-              subtitle,
-              style: const TextStyle(fontSize: 12, color: Colors.grey),
-            ),
-          ],
-        ),
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.grey[50],
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.08),
+            blurRadius: 4,
+            offset: const Offset(0, 4),
+          )
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(imagePath, height: 80),
+          const SizedBox(height: 5),
+          Text(title,
+              style:
+              const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+          Text(
+            subtitle,
+            style: const TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+        ],
       ),
     );
   }
